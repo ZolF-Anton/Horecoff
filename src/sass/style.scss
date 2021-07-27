@@ -1,0 +1,43 @@
+@import 'base/variables';
+@import 'blocks/1_header';
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+header,
+footer,
+nav,
+article {
+    display: block;
+}
+h1 {
+    /* title */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 140%;
+    /* or 67px */
+    letter-spacing: 1px;
+
+    /* main-white */
+    color: $white;
+    span {
+        font-family: Roboto;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 55px;
+        letter-spacing: 0.2px;
+        text-align: center;
+    }
+}
+@import 'blocks/btns';
+@import 'blocks/media';

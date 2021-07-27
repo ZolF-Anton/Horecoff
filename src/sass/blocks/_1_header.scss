@@ -1,0 +1,66 @@
+.header {
+    background: url('/img/bg_main.png') no-repeat 50% / cover;
+    &_wrap {
+        padding-top: 50px;
+        max-width: 1200px;
+    }
+    &_top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &_logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    nav {
+        ul {
+            gap: 1.9vw;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            li {
+                list-style: none;
+                font-family: Roboto;
+                font-size: 18px;
+                text-align: center;
+
+                a {
+                    text-decoration: none;
+                    color: $white;
+                    &:hover {
+                        border-bottom: 2px groove $salad;
+                        color: $salad;
+                    }
+                }
+            }
+        }
+    }
+    &_social {
+        // max-width: 162px;
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+        width: 162px;
+        //background-color: black;
+    }
+    &_brod {
+        margin-top: 150px;
+        max-width: 632px;
+        p {
+            text-align: right;
+            font-size: 26px;
+            line-height: 130%;
+            color: $white;
+        }
+    }
+    .btn_area {
+        margin-top: 150px;
+        display: flex;
+        align-items: center;
+        padding-bottom: 105px;
+    }
+}
