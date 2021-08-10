@@ -1,0 +1,100 @@
+.hamburger {
+    visibility: hidden;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 21px;
+    cursor: pointer;
+    span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: $white;
+        .long {
+            width: 36px;
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    z-index: 15;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.7s;
+    &_social {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        a {
+            text-decoration: none;
+        }
+    }
+    &__block {
+        position: relative;
+
+        width: 100vw;
+        height: 100%;
+        background-color: $chocolate;
+        transition: all 0.7s;
+        padding-top: 140px;
+        // padding-left: 40px;
+        z-index: 16;
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.menu.active {
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.menu__list {
+    list-style-type: none;
+    padding-left: 35px;
+}
+
+.menu__link {
+    position: relative;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 15px;
+    a {
+        color: $gray;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: -35px;
+        top: calc(50% - 8px);
+        height: 16px;
+        width: 16px;
+        border: 1px solid #000;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        border-radius: 100%;
+        transition: all 0.7s;
+    }
+}

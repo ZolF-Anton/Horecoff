@@ -1,0 +1,17 @@
+.about {
+    padding-top: 58px;
+}
+.goals-wrap {
+    margin-top: 40px;
+    display: flex;
+}
+.goals-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.goals-text {
+    font-size: 24px;
+    color: $white;
+    text-align: center;
+}

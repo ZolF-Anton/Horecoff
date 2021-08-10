@@ -1,0 +1,52 @@
+.gears {
+    background-color: #141f2e;
+    // padding-top: 120px;
+    &-wrap {
+        //perspective: 600px;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+    &_grids {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, 267px);
+        grid-template-rows: repeat(auto-fill, 390px);
+        gap: 30px;
+        margin-top: 60px;
+    }
+    &-item {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 14.58%,
+            rgba(56, 56, 56, 0.42) 100%
+        );
+        border-radius: 8px;
+        backface-visibility: hidden;
+    }
+    &-pic {
+        img {
+            width: 95%;
+            object-fit: contain;
+        }
+    }
+    &-name {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        color: $white;
+    }
+    &-btn {
+        margin-top: 15px;
+        padding-bottom: 25px;
+    }
+}
+
+.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.gears-item--back {
+    background-image: url('img/coffgear.png');
+    transform: rotateY(180deg);
+}

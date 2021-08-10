@@ -1,0 +1,60 @@
+// .coffee_range {
+//     padding-top: 115px;
+// }
+
+.sorts {
+    &_column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    &__wrap {
+        width: 520px;
+        background-color: #23313f;
+        border-radius: 8px;
+        padding: 12px;
+    }
+    &_head {
+        display: flex;
+        justify-content: flex-start;
+        gap: 35px;
+        margin-bottom: 20px;
+    }
+    &_name {
+        font-weight: 700;
+        font-size: 36px;
+        text-transform: uppercase;
+    }
+    &_taste {
+        display: flex;
+        justify-content: space-around;
+        font-size: 18px;
+        font-weight: 400;
+        color: $white;
+        padding: 15px 0;
+        span {
+            font-size: 24px;
+            font-weight: 900;
+        }
+    }
+    &_mix__wrap {
+        display: none;
+    }
+    &_text {
+        font-size: 18px;
+        font-family: Montserrat;
+        letter-spacing: 0.4px;
+        color: $white;
+        margin-top: 24px;
+    }
+    &_type {
+        color: $gray;
+        font-size: 18px;
+    }
+    &_percent {
+        color: $skin;
+        font-size: 26px;
+    }
+}

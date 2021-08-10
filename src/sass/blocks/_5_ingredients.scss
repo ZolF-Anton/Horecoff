@@ -1,0 +1,10 @@
+.ingredients {
+    // padding-top: 115px;
+    &_grid {
+        display: grid;
+        gap: 35px;
+        grid-template-columns: repeat(2, minmax(15%, 80%));
+        grid-template-rows: repeat(auto-fit, (10%, 90%));
+        align-items: center;
+    }
+}

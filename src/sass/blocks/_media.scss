@@ -1,0 +1,216 @@
+@media screen and (max-width: 992px) {
+    .beans {
+        display: none;
+    }
+    h2 {
+        text-align: center;
+    }
+    p {
+        padding: 0 30px;
+    }
+    .goals-wrap {
+        padding: 0 50px;
+    }
+    .ingredients {
+        &_grid {
+            grid-template-rows: minmax(15%, 80%);
+            grid-template-columns: minmax(10%, 80%);
+            justify-content: center;
+        }
+    }
+    .contacts {
+        &_grid {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+            gap: 35px;
+        }
+        &-form {
+            grid-column: 2/3;
+        }
+        &-call {
+            grid-row: 2/3;
+            grid-column: 1/4;
+            max-width: 90%;
+        }
+    }
+
+    .footer {
+        &_top {
+            justify-content: space-evenly;
+        }
+        &_wrapper {
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 945px) {
+    .header_top {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer {
+        a {
+            font-size: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        padding-top: 50px;
+    }
+    .gline {
+        border-left-style: none;
+    }
+    .about {
+        .goals-wrap {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        .goals-item {
+            max-width: 250px;
+        }
+    }
+    .coffee_range {
+        .sorts__wrap {
+            max-width: 460px;
+        }
+    }
+    .footer {
+        a {
+            font-size: 15px;
+        }
+        &_top {
+            flex-direction: column;
+            gap: 35px;
+        }
+        &_header {
+            text-align: center;
+        }
+        &_wrapper {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        &_contacts {
+            gap: 15px;
+            align-items: flex-start;
+            margin: 0 auto;
+        }
+        &_gmap {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header {
+        background: url(/img/bg_small.png) no-repeat 50% / cover;
+        background-color: #141f2e;
+        &_wrap {
+            padding-top: 10px;
+        }
+        &_top {
+            align-items: flex-start;
+        }
+        &_social {
+            display: none;
+        }
+
+        nav {
+            ul {
+                display: none;
+            }
+        }
+    }
+    .hamburger {
+        visibility: visible;
+    }
+
+    h2 {
+        font-size: 36px;
+        span {
+            font-size: 36px;
+        }
+    }
+    p {
+        margin-top: 17px;
+        font-size: 20px;
+        color: $white;
+    }
+
+    .gears-name {
+        font-size: 21px;
+        text-align: center;
+    }
+
+    .btn_order {
+        max-width: 75%;
+        font-size: 20px;
+    }
+    .coffee_range {
+        .sorts {
+            &_taste__wrap {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            &_taste {
+                flex-direction: column;
+                gap: 15px;
+            }
+            &__wrap {
+                max-width: 380px;
+                padding: 30px;
+            }
+            &_head {
+                flex-wrap: wrap;
+            }
+            &_mix {
+                display: none;
+                &__wrap {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                }
+            }
+            &_percent {
+                font-family: Montserrat;
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 44px;
+            }
+        }
+    }
+    .ingredients {
+        img {
+            max-width: 90%;
+        }
+        &_grid {
+            grid-template-rows: minmax(10%, 80%);
+            grid-template-columns: minmax(10%, 80%);
+            p {
+                padding: 0px;
+            }
+        }
+    }
+    .contacts-call {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .social_bot {
+        display: none;
+    }
+    .madeby {
+        font-size: 11px;
+        a {
+            font-size: 11px;
+        }
+    }
+}
