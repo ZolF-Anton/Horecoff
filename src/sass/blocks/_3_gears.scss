@@ -9,11 +9,17 @@
     &_grids {
         display: grid;
         justify-content: center;
+        // grid-template-columns: repeat(1, 267px);
+        // grid-template-rows: repeat(1, 390px);
         grid-template-columns: repeat(auto-fill, 267px);
         grid-template-rows: repeat(auto-fill, 390px);
         gap: 30px;
         margin-top: 60px;
     }
+    // &_flex {
+    //     display: flex;
+    //     overflow-x: scroll;
+    // }
     &-item {
         background: linear-gradient(
             180deg,

@@ -17,6 +17,9 @@
             grid-template-columns: minmax(10%, 80%);
             justify-content: center;
         }
+        img {
+            max-width: 90%;
+        }
     }
     .contacts {
         &_grid {
