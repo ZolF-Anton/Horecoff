@@ -7,7 +7,8 @@ const wrap = document.querySelector('.gears-wrap');
 ///////////////////////////////////////////////////////////
 const hamburger = document.querySelector('.hamburger'),
     menu = document.querySelector('.menu'),
-    closeElem = document.querySelector('.menu__close');
+    closeElem = document.querySelector('.menu__close'),
+    menuLinks = document.querySelectorAll('.menu__link');
 
 hamburger.addEventListener('click', () => {
     menu.classList.add('active');
@@ -16,6 +17,53 @@ hamburger.addEventListener('click', () => {
 closeElem.addEventListener('click', () => {
     menu.classList.remove('active');
 });
+
+if (menuLinks.length > 0) {
+    menuLinks.forEach((menuLink) => {
+        menuLink.addEventListener('click', onMenuLinkClick);
+    });
+    function onMenuLinkClick() {
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+        }
+    }
+}
+////////////////////////toTHR TOP/////////////
+
+/* begin begin Back to Top button  */
+(function () {
+    function trackScroll() {
+        const scrolled = window.pageYOffset;
+        const coords = document.documentElement.clientHeight;
+
+        if (scrolled > coords) {
+            goTopBtn.classList.add('back_to_top-show');
+        }
+        if (scrolled < 50) {
+            goTopBtn.classList.remove('back_to_top-show');
+        }
+    }
+
+    function backToTop() {
+        document.documentElement.style.scrollBehavior = 'auto';
+        if (window.pageYOffset > 0) {
+            window.scrollBy(0, -100);
+            setTimeout(backToTop, 0);
+        }
+        document.documentElement.style.scrollBehavior = 'smooth';
+    }
+
+    let goTopBtn = document.querySelector('.back_to_top');
+
+    window.addEventListener('scroll', trackScroll);
+    goTopBtn.addEventListener('click', backToTop);
+})();
+/* end begin Back to Top button  */
+
+//////////////////////////////glide_JS////////////
+/////////////////////////////////////////////////
+
+//new Glide('.glide').mount();
 
 ///////////////////Form Validate/////////////////////////
 ////////////////////////////////////////////////////////
@@ -98,4 +146,4 @@ form.addEventListener('submit', function (e) {
 
 const curYear = document.querySelector('.copyright-year');
 
-curYear.textContent = new Date(getFullYear);
+curYear.innerText = new Date().getFullYear();

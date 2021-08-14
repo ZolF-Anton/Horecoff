@@ -86,7 +86,46 @@
             content="icon/favicon/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#81533E" />
+        <!-- meta-tags -->
+        <!-- Primary Meta Tags -->
+        <title>Horecoff - «Кофе»...для этого есть МЫ!</title>
+        <meta name="title" content="Horecoff - «Кофе»...для этого есть МЫ!" />
+        <meta
+            name="description"
+            content="В основном мы работаем с различными кофейными сортами-смесями арабики и робусты, но также с удовольствием предлагаем Вам моносорта и эспрессо-смеси Regola Del the P."
+        />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://horecoff.anton-zolf.su/" />
+        <meta
+            property="og:title"
+            content="Horecoff - «Кофе»...для этого есть МЫ!"
+        />
+        <meta
+            property="og:description"
+            content="В основном мы работаем с различными кофейными сортами-смесями арабики и робусты, но также с удовольствием предлагаем Вам моносорта и эспрессо-смеси Regola Del the P."
+        />
+        <meta property="og:image" content="" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:url"
+            content="https://horecoff.anton-zolf.su/"
+        />
+        <meta
+            property="twitter:title"
+            content="Horecoff - «Кофе»...для этого есть МЫ!"
+        />
+        <meta
+            property="twitter:description"
+            content="В основном мы работаем с различными кофейными сортами-смесями арабики и робусты, но также с удовольствием предлагаем Вам моносорта и эспрессо-смеси Regola Del the P."
+        />
+        <meta property="twitter:image" content="" />
+        <!-- end of meta-tags -->
         <link rel="stylesheet" href="css/style.min.css" />
+
         <title>Horecoff</title>
     </head>
     <body>
@@ -114,11 +153,11 @@
                         </div>
                         <nav>
                             <ul>
-                                <li><a href="#">О компании</a></li>
-                                <li><a href="#">Оборудование</a></li>
-                                <li><a href="#">Кофе</a></li>
-                                <li><a href="#">Ингредиенты</a></li>
-                                <li><a href="#">Контакты</a></li>
+                                <li><a href="#about">О компании</a></li>
+                                <li><a href="#gears">Оборудование</a></li>
+                                <li><a href="#coffee_range">Кофе</a></li>
+                                <li><a href="#ingredients">Ингредиенты</a></li>
+                                <li><a href="#contacts">Контакты</a></li>
                             </ul>
                             <div class="hamburger">
                                 <span></span>
@@ -172,7 +211,36 @@
                     </div>
                 </div>
             </div>
+            <a class="back_to_top" title="Наверх">
+                <svg
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    width="42"
+                    height="41"
+                    viewBox="0 0 300.003 300.003"
+                    style="enable-background: new 0 0 300.003 300.003"
+                    xml:space="preserve"
+                >
+                    <g>
+                        <g>
+                            <path
+                                d="M150,0C67.159,0,0.001,67.159,0.001,150c0,82.838,67.157,150.003,149.997,150.003S300.002,232.838,300.002,150
+				C300.002,67.159,232.842,0,150,0z M217.685,189.794c-5.47,5.467-14.338,5.47-19.81,0l-48.26-48.27l-48.522,48.516
+				c-5.467,5.467-14.338,5.47-19.81,0c-2.731-2.739-4.098-6.321-4.098-9.905s1.367-7.166,4.103-9.897l56.292-56.297
+				c0.539-0.838,1.157-1.637,1.888-2.368c2.796-2.796,6.476-4.142,10.146-4.077c3.662-0.062,7.348,1.281,10.141,4.08
+				c0.734,0.729,1.349,1.528,1.886,2.365l56.043,56.043C223.152,175.454,223.156,184.322,217.685,189.794z"
+                                fill="#C0DA67"
+                            />
+                        </g>
+                    </g>
+                </svg>
+            </a>
         </header>
+
         <section class="menu">
             <div class="menu__block">
                 <div class="menu__close">
@@ -201,11 +269,21 @@
                 </div>
                 <nav>
                     <ul class="menu__list">
-                        <li class="menu__link"><a href="#">О КОМПАНИИ</a></li>
-                        <li class="menu__link"><a href="#">ОБОРУДОВАНИЕ</a></li>
-                        <li class="menu__link"><a href="#">КОФЕ</a></li>
-                        <li class="menu__link"><a href="#">ИНГРЕДИЕНТЫ</a></li>
-                        <li class="menu__link"><a href="#">КОНТАКТЫ</a></li>
+                        <li class="menu__link">
+                            <a href="#about">О КОМПАНИИ</a>
+                        </li>
+                        <li class="menu__link">
+                            <a href="#gears">ОБОРУДОВАНИЕ</a>
+                        </li>
+                        <li class="menu__link">
+                            <a href="#coffee_range">КОФЕ</a>
+                        </li>
+                        <li class="menu__link">
+                            <a href="#ingredients">ИНГРЕДИЕНТЫ</a>
+                        </li>
+                        <li class="menu__link">
+                            <a href="#contacts">КОНТАКТЫ</a>
+                        </li>
                     </ul>
                 </nav>
                 <div class="menu_social">
@@ -244,7 +322,7 @@
             <div class="menu__overlay"></div>
         </section>
 
-        <section class="about">
+        <section id="about" class="about">
             <div class="container">
                 <h2 class="tac"><span>О компании</span> Horecoff</h2>
                 <p class="tac">
@@ -309,7 +387,8 @@
                 </div>
             </div>
         </section>
-        <section class="gears">
+
+        <section id="gears" class="gears">
             <div class="container">
                 <h2 class="gline">Оборудование</h2>
                 <p>
@@ -324,61 +403,43 @@
                     сроки.
                 </p>
                 <div class="gears_grids">
-                   
-                        <div class="gears-wrap">
-                            <div class="gears-item gears-item--front">
-                                <div class="gears-pic">
-                                    <img
-                                        src="img/coffgear.png"
-                                        alt="coffemachine"
-                                    />
-                                </div>
-                                <div class="gears-name">Unicum Nero Espresso</div>
-                                <div class="gears-btn">
-                                    <button class="btn btn_info" type="button">
-                                        Подробнее
-                                    </button>
-                                </div>
+                    <div class="gears-wrap">
+                        <div class="gears-item gears-item-front">
+                            <div class="gears-pic">
+                                <img
+                                    src="img/coffgear.png"
+                                    alt="coffemachine"
+                                />
                             </div>
-                            <div class="gears-item gears-item--back">
+                            <div class="gears-name">Unicum Nero Espresso</div>
+                            <div class="gears-btn">
                                 <button class="btn btn_info" type="button">
                                     Подробнее
                                 </button>
                             </div>
-                        </div>
-                        <div class="gears-wrap">
-                            <div class="gears-item gears-item--front">
-                                <div class="gears-pic">
-                                    <img
-                                        src="img/coffgear.png"
-                                        alt="coffemachine"
-                                    />
+                            <div class="gears-item gears-item-back">
+                                <div class="gears_brand_wrap">
+                                    <div class="gears_brand">Бренд:</div>
+                                    <div class="gears_brand-name">Saeco</div>
                                 </div>
-                                <div class="gears-name">Unicum Nero Espresso</div>
-                                <div class="gears-btn">
-                                    <button class="btn btn_info" type="button">
-                                        Подробнее
-                                    </button>
+                                <div class="gears_profile_wrap">
+                                    <div class="gears_profile">
+                                        Габариты (ВхШхГ):
+                                    </div>
+                                    <div class="gears_profile-nums">
+                                        53x78x55
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="gears-wrap">
-                            <div class="gears-item gears-item--front">
-                                <div class="gears-pic">
-                                    <img
-                                        src="img/coffgear.png"
-                                        alt="coffemachine"
-                                    />
-                                </div>
-                                <div class="gears-name">Unicum Nero Espresso</div>
-                                <div class="gears-btn">
-                                    <button class="btn btn_info" type="button">
-                                        Подробнее
-                                    </button>
+                                <div class="gears_cappuccino_wrap">
+                                    <div class="gears_cappuccino">Капучино</div>
+                                    <div class="gears_cappuccino_boolean">
+                                        есть
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="gears-wrap">
+                    </div>
+                    <div class="gears-wrap">
                         <div class="gears-item gears-item--front">
                             <div class="gears-pic">
                                 <img
@@ -392,18 +453,109 @@
                                     Подробнее
                                 </button>
                             </div>
+                            <div class="gears-item gears-item-back">
+                                <div class="gears_brand_wrap">
+                                    <div class="gears_brand">Бренд:</div>
+                                    <div class="gears_brand-name">Saeco</div>
+                                </div>
+                                <div class="gears_profile_wrap">
+                                    <div class="gears_profile">
+                                        Габариты (ВхШхГ):
+                                    </div>
+                                    <div class="gears_profile-nums">
+                                        53x78x55
+                                    </div>
+                                </div>
+                                <div class="gears_cappuccino_wrap">
+                                    <div class="gears_cappuccino">Капучино</div>
+                                    <div class="gears_cappuccino_boolean">
+                                        есть
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    
+                    </div>
+                    <div class="gears-wrap">
+                        <div class="gears-item gears-item--front">
+                            <div class="gears-pic">
+                                <img
+                                    src="img/coffgear.png"
+                                    alt="coffemachine"
+                                />
+                            </div>
+                            <div class="gears-name">Unicum Nero Espresso</div>
+                            <div class="gears-btn">
+                                <button class="btn btn_info" type="button">
+                                    Подробнее
+                                </button>
+                            </div>
+                            <div class="gears-item gears-item-back">
+                                <div class="gears_brand_wrap">
+                                    <div class="gears_brand">Бренд:</div>
+                                    <div class="gears_brand-name">Saeco</div>
+                                </div>
+                                <div class="gears_profile_wrap">
+                                    <div class="gears_profile">
+                                        Габариты (ВхШхГ):
+                                    </div>
+                                    <div class="gears_profile-nums">
+                                        53x78x55
+                                    </div>
+                                </div>
+                                <div class="gears_cappuccino_wrap">
+                                    <div class="gears_cappuccino">Капучино</div>
+                                    <div class="gears_cappuccino_boolean">
+                                        есть
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gears-wrap">
+                        <div class="gears-item gears-item--front">
+                            <div class="gears-pic">
+                                <img
+                                    src="img/coffgear.png"
+                                    alt="coffemachine"
+                                />
+                            </div>
+                            <div class="gears-name">Unicum Nero Espresso</div>
+                            <div class="gears-btn">
+                                <button class="btn btn_info" type="button">
+                                    Подробнее
+                                </button>
+                            </div>
+                            <div class="gears-item gears-item-back">
+                                <div class="gears_brand_wrap">
+                                    <div class="gears_brand">Бренд:</div>
+                                    <div class="gears_brand-name">Saeco</div>
+                                </div>
+                                <div class="gears_profile_wrap">
+                                    <div class="gears_profile">
+                                        Габариты (ВхШхГ):
+                                    </div>
+                                    <div class="gears_profile-nums">
+                                        53x78x55
+                                    </div>
+                                </div>
+                                <div class="gears_cappuccino_wrap">
+                                    <div class="gears_cappuccino">Капучино</div>
+                                    <div class="gears_cappuccino_boolean">
+                                        есть
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                
 
                 <button class="btn btn_order" type="button">
                     Заказать оборудование
                 </button>
             </div>
         </section>
-        <section class="coffee_range">
+
+        <section id="coffee_range" class="coffee_range">
             <div class="container">
                 <h2 class="gline">Ассортимент кофе</h2>
                 <p>
@@ -451,17 +603,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -498,17 +652,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -545,17 +701,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -592,17 +750,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -624,8 +784,6 @@
                                 красные ягоды и орех.
                             </div>
                         </div>
-                    </div>
-                    <div class="sorts_column">
                         <div class="sorts__wrap">
                             <div class="sorts_head">
                                 <div class="sorts_name green">silica</div>
@@ -641,17 +799,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -688,17 +848,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -735,17 +897,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -782,17 +946,19 @@
                             <div class="line"></div>
                             <div class="sorts_taste__wrap">
                                 <div class="sorts_taste">
-                                    <div class="roast">
+                                    <div class="roast centered">
                                         Обжарка <span>4</span>
                                     </div>
-                                    <div class="body">Тело <span>4</span></div>
-                                    <div class="aroma">
+                                    <div class="body centered">
+                                        Тело <span>4</span>
+                                    </div>
+                                    <div class="aroma centered">
                                         Аромат <span>3</span>
                                     </div>
-                                    <div class="bitter">
+                                    <div class="bitter centered">
                                         Горчинка <span>2</span>
                                     </div>
-                                    <div class="sour">
+                                    <div class="sour centered">
                                         Кислинка <span>6</span>
                                     </div>
                                 </div>
@@ -816,6 +982,7 @@
                         </div>
                     </div>
                 </div>
+
                 <p>
                     В основном мы работаем с различными кофейными
                     сортами-смесями арабики и робусты, но также с удовольствием
@@ -824,7 +991,8 @@
                 <button class="btn btn_order">Заказать кофе</button>
             </div>
         </section>
-        <section class="ingredients">
+
+        <section id="ingredients" class="ingredients">
             <div class="container">
                 <h2 class="gline">Ингредиенты</h2>
                 <div class="ingredients_grid">
@@ -865,143 +1033,224 @@
                 </div>
             </div>
         </section>
-        <section class="contacts">
+
+        <section id="contacts" class="contacts">
             <div class="container">
                 <h2 class="gline">Контакты</h2>
                 <div class="contacts_grid">
                     <div class="contacts-form">
-
                         <form id="form" class="form">
                             <h3>Свяжитесь с нами</h3>
                             <div class="form-control">
                                 <label for="username"></label>
-                                <input type="text" id="username" placeholder="Ваше имя" />
+                                <input
+                                    type="text"
+                                    id="username"
+                                    placeholder="Ваше имя"
+                                />
                                 <small>Error message</small>
                             </div>
                             <div class="form-control">
                                 <label for="email"></label>
-                                <input type="text" id="email" placeholder="Ваша почта или телефон" />
+                                <input
+                                    type="text"
+                                    id="email"
+                                    placeholder="Ваша почта или телефон"
+                                />
                                 <small>Error message</small>
                             </div>
                             <div class="form-control">
                                 <label for="textarea"></label>
-                                <input type="text" id="textarea" placeholder="Напишите нам" />
+                                <!-- <input
+                                    type="text"
+                                    id="textarea"
+                                    placeholder="Напишите нам"
+                                /> -->
+                                <textarea
+                                    required
+                                    id="textarea"
+                                    placeholder="Напишите нам"
+                                ></textarea>
                                 <small>Error message</small>
                             </div>
-                            
-                            <button class="btn btn_blue-send" type="submit">Отправить</button>
-                        </form>
 
+                            <button class="btn btn_blue-send" type="submit">
+                                Отправить
+                            </button>
+                        </form>
                     </div>
                     <div class="contacts-call">
                         <p>
-                            Для более подробной консультации, пожалуйста, обращайтесь к нашим менеджерам.
+                            Для более подробной консультации, пожалуйста,
+                            обращайтесь к нашим менеджерам.
                         </p>
                         <p class="fz24">
-                            Мы подберем для Вас оборудование и ингредиенты по Вашим запросам, подготовим договор и организуем максимально быструю установку оборудования и поставку товаров.
+                            Мы подберем для Вас оборудование и ингредиенты по
+                            Вашим запросам, подготовим договор и организуем
+                            максимально быструю установку оборудования и
+                            поставку товаров.
                         </p>
-                        <button class="btn " type="submit">Позвонить менеджеру</button>
+                        <button class="btn" type="submit">
+                            <a href="tel:+79284450728">Позвонить менеджеру</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
-       <div class="gline_long"></div>
-        <footer class="footer">
+
+        <div class="gline_long"></div>
+        <footer id="footer" class="footer">
             <div class="container">
                 <div class="footer_top">
                     <div class="footer_links">
-                        <div class="footer_header">Разделы</a></div>
+                        <div class="footer_header">Разделы</div>
                         <div class="footer_wrapper">
                             <div class="footer_links_wrap">
-                                <div class="footer_link"><a href="#">Начало</a></div>
-                                <div class="footer_link"><a href="#">Оборудование</a></div>
-                                <div class="footer_link"><a href="#">Кофе</a></div>
+                                <div class="footer_link">
+                                    <a href="#">Начало</a>
+                                </div>
+                                <div class="footer_link">
+                                    <a href="#">Оборудование</a>
+                                </div>
+                                <div class="footer_link">
+                                    <a href="#">Кофе</a>
+                                </div>
                             </div>
                             <div class="footer_links_wrap">
-                                <div class="footer_link"><a href="#">Ингридиенты</a></div>
-                                <div class="footer_link"><a href="#">О компании</a></div>
-                                <div class="footer_link"><a href="#">Контакты</a></div>
+                                <div class="footer_link">
+                                    <a href="#">Ингридиенты</a>
+                                </div>
+                                <div class="footer_link">
+                                    <a href="#">О компании</a>
+                                </div>
+                                <div class="footer_link">
+                                    <a href="#">Контакты</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="footer_contacts">
                         <div class="footer_phone">
-                            <img src="icon/address/phone.svg" alt="">
+                            <img src="icon/address/phone.svg" alt="" />
                             <div class="footer_phone_wrap">
-                                <div class="phone"><a href="tel:+89284450728">8 928 445 0728</a></div>
-                                <div class="phone"><a href="tel:+89388885877">8 938 888 5877</a></div>
+                                <div class="phone">
+                                    <a href="tel:+79284450728"
+                                        >8 928 445 0728</a
+                                    >
+                                </div>
+                                <div class="phone">
+                                    <a href="tel:+79388885877"
+                                        >8 938 888 5877</a
+                                    >
+                                </div>
                             </div>
                         </div>
                         <div class="footer_mail">
-                            <img src="icon/address/mail.svg" alt="">
+                            <img src="icon/address/mail.svg" alt="" />
                             <div class="footer_mail_wrap">
-                                <div class="mail"><a href="mailto:sochicoffee.valentina@gmail.com">sochicoffee.valentina@gmail.com</a></div>
-                                <div class="mail"><a href="mailto:ooohorecoff@gmail.com">ooohorecoff@gmail.com</a></div>
+                                <div class="mail">
+                                    <a
+                                        href="mailto:sochicoffee.valentina@gmail.com"
+                                        >sochicoffee.valentina@gmail.com</a
+                                    >
+                                </div>
+                                <div class="mail">
+                                    <a href="mailto:ooohorecoff@gmail.com"
+                                        >ooohorecoff@gmail.com</a
+                                    >
+                                </div>
                             </div>
                         </div>
                         <div class="footer_map">
-                            <img src="icon/address/map.svg" alt="">
+                            <img src="icon/address/map.svg" alt="" />
                             <div class="footer_map_wrap">
-                                <div class="map"><a href="https://goo.gl/maps/LRDMrfNzH1mZ4qV89">г.Сочи, Центральный район,</a></div>
-                                <div class="map"><a href="https://goo.gl/maps/LRDMrfNzH1mZ4qV89">ул.Пластунская 47а, оф.5</a></div>
+                                <div class="map">
+                                    <a
+                                        href="https://goo.gl/maps/LRDMrfNzH1mZ4qV89"
+                                        >г.Сочи, Центральный район,</a
+                                    >
+                                </div>
+                                <div class="map">
+                                    <a
+                                        href="https://goo.gl/maps/LRDMrfNzH1mZ4qV89"
+                                        >ул.Пластунская 47а, оф.5</a
+                                    >
+                                </div>
                             </div>
                         </div>
                         <div class="footer_social">
                             <div class="header_social">
-                            <a href="#">
-                                <svg
-                                    width="42"
-                                    height="41"
-                                    viewBox="0 0 42 41"
-                                    fill="none"
-                                >
-                                    <use href="#twitter"></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg
-                                    width="42"
-                                    height="41"
-                                    viewBox="0 0 42 41"
-                                    fill="none"
-                                >
-                                    <use href="#facebook"></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg
-                                    width="42"
-                                    height="41"
-                                    viewBox="0 0 42 41"
-                                    fill="none"
-                                >
-                                    <use href="#linkedin"></use>
-                                </svg>
-                            </a>
-                        </div>
+                                <a href="#">
+                                    <svg
+                                        width="42"
+                                        height="41"
+                                        viewBox="0 0 42 41"
+                                        fill="none"
+                                    >
+                                        <use href="#twitter"></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg
+                                        width="42"
+                                        height="41"
+                                        viewBox="0 0 42 41"
+                                        fill="none"
+                                    >
+                                        <use href="#facebook"></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg
+                                        width="42"
+                                        height="41"
+                                        viewBox="0 0 42 41"
+                                        fill="none"
+                                    >
+                                        <use href="#linkedin"></use>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="footer_gmap">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d722.303590882255!2d39.73320102924134!3d43.602078098695216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f5cbe943579d23%3A0xf515d5090260386e!2z0YPQuy4g0J_Qu9Cw0YHRgtGD0L3RgdC60LDRjywgNDfQkCwgNSwg0KHQvtGH0LgsINCa0YDQsNGB0L3QvtC00LDRgNGB0LrQuNC5INC60YDQsNC5LCAzNTQwNTc!5e0!3m2!1sru!2sru!4v1628355517741!5m2!1sru!2sru" 
-                        width="300" 
-                        height="300" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d722.303590882255!2d39.73320102924134!3d43.602078098695216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f5cbe943579d23%3A0xf515d5090260386e!2z0YPQuy4g0J_Qu9Cw0YHRgtGD0L3RgdC60LDRjywgNDfQkCwgNSwg0KHQvtGH0LgsINCa0YDQsNGB0L3QvtC00LDRgNGB0LrQuNC5INC60YDQsNC5LCAzNTQwNTc!5e0!3m2!1sru!2sru!4v1628355517741!5m2!1sru!2sru"
+                            width="300"
+                            height="300"
+                            style="border: 0"
+                            allowfullscreen=""
+                            loading="lazy"
+                        ></iframe>
                     </div>
                 </div>
-                
             </div>
             <div class="footer_bot">
-                    <div class="rights">Horecoff © <span class="copyright-year"></span> All rights reserved</div>
-                    <div class="madeby">Made by <a href="https://anton-zolf.su/">Anton-ZolF</a> & OstKost</div>
-                    <div class="social_bot">
-                        <div class="social_bot_wrap">
-                            <img src="icon/social_creators/facebook.svg" alt="facebook">
-                            <img src="icon/social_creators/instagram.svg" alt="instagram">
-                            <img src="icon/social_creators/twitter.svg" alt="twitter">
-                        </div>
+                <div class="rights">
+                    Horecoff © <span class="copyright-year"></span> All rights
+                    reserved
+                </div>
+                <div class="madeby">
+                    Made by <a href="https://anton-zolf.su/">Anton-ZolF</a> &
+                    OstKost
+                </div>
+                <div class="social_bot">
+                    <div class="social_bot_wrap">
+                        <img
+                            src="icon/social_creators/facebook.svg"
+                            alt="facebook"
+                        />
+                        <img
+                            src="icon/social_creators/instagram.svg"
+                            alt="instagram"
+                        />
+                        <img
+                            src="icon/social_creators/twitter.svg"
+                            alt="twitter"
+                        />
                     </div>
                 </div>
+            </div>
         </footer>
 
         <!-- ************************************************ -->
@@ -1081,5 +1330,9 @@
             </symbol>
         </svg>
         <script src="js/app.js"></script>
+        <script src="js/glide.min.js"></script>
+        <!-- <script>
+            new Glide('.glide').mount();
+        </script> -->
     </body>
 </html>

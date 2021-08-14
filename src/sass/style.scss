@@ -19,6 +19,10 @@
     margin: 0 auto;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 header,
 footer,
 nav,
@@ -85,5 +89,37 @@ p {
     width: 99%;
     height: 0px;
 }
+.disabled {
+    display: none;
+}
+.centered {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.back_to_top {
+    font-size: 48px;
+    position: fixed;
+    bottom: 1px;
+    right: 1px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    // background: #f5f5f5;
+    color: #3a70e0;
+    cursor: pointer;
+    border-radius: 2px;
+    display: none;
+    &:hover {
+        color: #00b8ff;
+    }
+    &-show {
+        display: block;
+    }
+}
+
 @import 'blocks/btns';
 @import 'blocks/media';
