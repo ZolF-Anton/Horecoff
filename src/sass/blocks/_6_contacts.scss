@@ -13,7 +13,7 @@
     &_grid {
         display: grid;
         grid-template-columns: 1fr 1.6fr;
-        column-gap: 200px;
+        column-gap: 100px;
         padding-bottom: 100px;
     }
     &-form {
@@ -26,7 +26,8 @@
     padding: 30px 40px;
     #textarea {
         height: 190px;
-        text-align: center;
+        text-align: left;
+        border-radius: 18px;
     }
 
     h3 {
@@ -53,7 +54,8 @@
             }
         }
 
-        input {
+        input,
+        textarea {
             border: 2px solid #f0f0f0;
             border-radius: 39px;
             display: block;

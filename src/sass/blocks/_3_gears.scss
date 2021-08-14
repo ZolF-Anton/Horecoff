@@ -27,7 +27,35 @@
             rgba(56, 56, 56, 0.42) 100%
         );
         border-radius: 8px;
-        backface-visibility: hidden;
+        position: relative;
+        overflow: hidden;
+        &:hover {
+            .gears-item-back {
+                opacity: 0.9;
+            }
+        }
+        &-back {
+            background-image: url('img/coffgear.png');
+            opacity: 0;
+            position: absolute;
+            width: 85%;
+            height: 80%;
+            background: rgb(69, 59, 45);
+            background: linear-gradient(
+                180deg,
+                rgba(69, 59, 45, 1) 0%,
+                rgba(99, 89, 56, 0.4) 40%,
+                rgba(30, 38, 49, 0.15) 100%
+            );
+            transition: 400ms;
+            top: 10px;
+            color: $white;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            font-size: 22px;
+            padding: 35px 20px;
+        }
     }
     &-pic {
         img {
@@ -46,13 +74,4 @@
         margin-top: 15px;
         padding-bottom: 25px;
     }
-}
-
-.is-flipped {
-    transform: rotateY(180deg);
-}
-
-.gears-item--back {
-    background-image: url('img/coffgear.png');
-    transform: rotateY(180deg);
 }

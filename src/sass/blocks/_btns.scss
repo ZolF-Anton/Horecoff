@@ -12,6 +12,10 @@
     display: block;
     margin: 0 auto;
     cursor: pointer;
+    a {
+        text-decoration: none;
+        color: $white;
+    }
     &_info {
         background-color: $blue;
         padding: 10px 36px;
