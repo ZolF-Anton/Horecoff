@@ -8,10 +8,10 @@
 @import 'blocks/6_contacts';
 @import 'blocks/7_footer';
 @import 'blocks/burger';
+@import 'blocks/popup';
 
 * {
     font-family: 'Roboto', sans-serif;
-    // box-sizing: border-box;
 }
 
 .container {
@@ -120,6 +120,8 @@ p {
         display: block;
     }
 }
-
+.lock {
+    overflow: hidden;
+}
 @import 'blocks/btns';
 @import 'blocks/media';
