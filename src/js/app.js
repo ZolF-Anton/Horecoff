@@ -145,19 +145,19 @@ if (menuLinks.length > 0) {
         }
     }
 
-    function backToTop() {
-        document.documentElement.style.scrollBehavior = 'auto';
-        if (window.pageYOffset > 0) {
-            window.scrollBy(0, -100);
-            setTimeout(backToTop, 0);
-        }
-        document.documentElement.style.scrollBehavior = 'smooth';
-    }
+    // function backToTop() {
+    //     document.documentElement.style.scrollBehavior = 'auto';
+    //     if (window.pageYOffset > 0) {
+    //         window.scrollBy(0, -100);
+    //         setTimeout(backToTop, 0);
+    //     }
+    //     document.documentElement.style.scrollBehavior = 'smooth';
+    // }
 
     let goTopBtn = document.querySelector('.back_to_top');
 
     window.addEventListener('scroll', trackScroll);
-    goTopBtn.addEventListener('click', backToTop);
+    // goTopBtn.addEventListener('click', backToTop);
 })();
 /* end begin Back to Top button  */
 
