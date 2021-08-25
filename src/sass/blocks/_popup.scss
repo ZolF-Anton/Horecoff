@@ -1,0 +1,102 @@
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(35, 25, 15, 0.7);
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 800ms ease 0s;
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        .popup__content {
+            transform: perspective(600px) translate(0px, 0%) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    &__body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 20px;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 14.58%,
+            rgba(56, 56, 56, 0.42) 100%
+        );
+        background-color: $black;
+        border-radius: 8px;
+
+        max-width: 900px;
+        padding: 80px 30px;
+        position: relative;
+        transition: all 800ms ease 0s;
+        opacity: 0;
+        transform: perspective(600px) translate(0px, -100%) rotate(45deg);
+    }
+    &__close {
+        position: absolute;
+        color: blanchedalmond;
+    }
+    &__about {
+        display: flex;
+        margin: 35px 60px 40px;
+        font-weight: 700;
+        font-size: 16px;
+        color: $gray;
+    }
+    &__img {
+        flex-grow: 3;
+        img {
+            max-width: 230px;
+        }
+    }
+    &__text {
+        flex-grow: 5;
+    }
+    &__tech_wrap {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+    &__tech_item {
+        display: flex;
+        width: 425px;
+        column-gap: 15px;
+    }
+    &__tech_num {
+        max-width: 200px;
+        font-weight: 400;
+        font-size: 13px;
+        color: $white;
+    }
+    &__tech_name {
+        width: 200px;
+        font-weight: 400;
+        font-size: 12px;
+        color: $gray;
+    }
+    &__title {
+        text-align: center;
+        color: $white;
+        font-size: 32px;
+    }
+    .fz26 {
+        font-size: 26px;
+    }
+}
