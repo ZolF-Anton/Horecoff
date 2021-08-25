@@ -1,0 +1,63 @@
+.footer {
+    background-color: #222932;
+    padding-top: 50px;
+    a {
+        text-decoration: none;
+        font-size: 18px;
+        color: $white;
+    }
+    &_bot {
+        background-color: $asph;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color: $gray;
+        font-size: 14px;
+        a {
+            font-size: 14px;
+            text-decoration: none;
+        }
+    }
+    &_top {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 65px;
+    }
+    &_header {
+        color: $salad;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    &_wrapper {
+        display: flex;
+        gap: 50px;
+        margin-top: 25px;
+    }
+    &_links {
+        &_wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+    &_contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    &_phone {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    &_mail {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    &_map {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+}
