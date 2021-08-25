@@ -59,7 +59,7 @@ function setIdDiv() {
     const count = apparatus.records.length;
 
     for (let i = 0; i < count; i++) {
-        let el = gearItem[i];
+        const el = gearItem[i];
         let arEl = apparatus.records[i];
 
         el.setAttribute('data-id', arEl.id);
@@ -67,7 +67,10 @@ function setIdDiv() {
         if (gearItem[i].dataset.id === apparatus.records[i].id) {
             gearName[i].textContent = apparatus.records[i].fields.Name;
             console.log(gearItem[i].dataset.id);
-            if (typeof apparatus.records[1].fields.Photo[0].url === 'string') {
+            if (
+                Array.isArray(apparatus.records[i].fields.Photo) &&
+                typeof apparatus.records[i].fields.Photo[0].url === 'string'
+            ) {
                 gearPhoto[i].src = apparatus.records[i].fields.Photo[0].url;
             } else {
                 console.log('Ощибка фоток');
@@ -94,16 +97,16 @@ function countAny() {
     for (let i = 0; i < techs.records.length; i++) {}
 }
 
-// function onBtnInfo() {
-//     const btnInfo = document.querySelectorAll('.btn_info');
+function onBtnInfo() {
+    const btnInfo = document.querySelectorAll('.btn_info');
 
-//     [...btnInfo].forEach((btnInfo) =>
-//         btnInfo.addEventListener('click', () => {
-//             gearItem = btnInfo.closest('div[data-id]');
-//             console.log(btnInfo.closest('div[data-id]'));
-//         })
-//     );
-// }
+    [...btnInfo].forEach((btnInfo) =>
+        btnInfo.addEventListener('click', () => {
+            gearItem = btnInfo.closest('div[data-id]');
+            console.log(btnInfo.closest('div[data-id]'));
+        })
+    );
+}
 
 getApparatus().then(getTechs).then(mapApparatus); ////////////////////////////////////
 //getApparatus();
