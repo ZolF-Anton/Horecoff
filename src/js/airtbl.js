@@ -24,21 +24,14 @@ async function getTechs() {
 function mapApparatus() {
     // 	тут перебираем аппараты и добавляем характеристики
 
-    iterateObj(apparatus); // Перебор массива//////////////////////////////////////////
-    //iterateObj(techs); // Перебор массива///////////////////////////////////////////
-
-    ///////////////let clue = Object.keys(apparatus.records); // почему ошибка?
-    ////////////// console.log(clue);
+    cloneGearDivs(apparatus); // Перебор массива//////////////////////////////////////////
+    //cloneGearDivs(techs); // Перебор массива///////////////////////////////////////////
 }
 
-function iterateObj(geck) {
-    /////////////////////
+function cloneGearDivs(geck) {
     const gliderDiv = document.querySelector('.glider-track');
     const gear1 = document.querySelector('div.gears-wrap._desktop');
-    //const gear2 = gear1.cloneNode(true);
     const gearS = document.querySelectorAll('.gears-wrap');
-    //const counter = apparatus.records.length;
-    ////////////////////////
     const count = geck.records.length;
     for (let i = 0; i < count; i++) {
         let el = gearS[i];
@@ -47,54 +40,35 @@ function iterateObj(geck) {
         el.classList.remove('disabled');
     }
 
-    setIdDiv();
+    createGearItems();
 }
 
-function setIdDiv() {
-    const gearItem = document.querySelectorAll('.gears-item-front');
-    const gearName = document.querySelectorAll(
-        '.gears-item-front > .gears-name'
-    );
+function createGearItems() {
+    const gearItemFront = document.querySelectorAll('.gears-item-front');
+    const gearName = document.querySelectorAll('.gears-item-front > .gears-name');
     const gearPhoto = document.querySelectorAll('.gears-pic > img');
     const count = apparatus.records.length;
-
+    ///Создаём счётчик по кол-ву записей
     for (let i = 0; i < count; i++) {
-        const el = gearItem[i];
-        let arEl = apparatus.records[i];
-
-        el.setAttribute('data-id', arEl.id);
-
-        if (gearItem[i].dataset.id === apparatus.records[i].id) {
-            gearName[i].textContent = apparatus.records[i].fields.Name;
-            console.log(gearItem[i].dataset.id);
+        const appRec = apparatus.records[i];
+        /////////////Присваиваем div'ам  data-id = id кофемашины//////
+        gearItemFront[i].setAttribute('data-id', appRec.id);
+        ///////////Сравниваем по ID от той ли кофемашины параметры
+        if (gearItemFront[i].dataset.id === appRec.id) {
+            gearName[i].textContent = appRec.fields.Name;
+            console.log(gearItemFront[i].dataset.id);
+            //////Проверяем объект на существование/////
             if (
-                Array.isArray(apparatus.records[i].fields.Photo) &&
-                typeof apparatus.records[i].fields.Photo[0].url === 'string'
+                Array.isArray(appRec.fields.Photo) &&
+                typeof appRec.fields.Photo[0].url === 'string'
             ) {
-                gearPhoto[i].src = apparatus.records[i].fields.Photo[0].url;
+                /////Вставляем изображение кофемашины
+                gearPhoto[i].src = appRec.fields.Photo[0].url;
             } else {
-                console.log('Ощибка фоток');
+                console.log('Error no Photo');
             }
         }
     }
-}
-
-function iterateTech() {
-    for (let i = 0; i < techs.records.length; i++) {
-        const appId = techs.records[i].fields.apparatus[0];
-    }
-}
-function countAny() {
-    for (let index = 0; index < apparatus.records.length; index++) {
-        const appId = apparatus.records[i].id;
-        for (let i = 0; i < techs.records.length; i++) {
-            if ((appId = techs.records[i].fields.apparatus[0])) {
-                console.log('Столько раз', i);
-            }
-        }
-    }
-
-    for (let i = 0; i < techs.records.length; i++) {}
 }
 
 function onBtnInfo() {
@@ -108,7 +82,27 @@ function onBtnInfo() {
     );
 }
 
+/////////////Ф-я запуска модального окно с любой кнопки
+function modalWindowOpen() {
+    console.log(document.querySelectorAll('.btn_info').length);
+    let popupLinks = document.querySelectorAll('.btn_info');
+    for (let btnModal of popupLinks) {
+        btnModal.addEventListener('click', () => {
+            const currentPopup = document.getElementById('popup');
+
+            popupOpen(currentPopup);
+            fillModalWindow('rec9baWckBQLZTXf9'); /////////////Заменить на .closest('div[data-id]
+        });
+    }
+}
+
+function fillModalWindow(idGear) {
+    console.log('PopUp  working', idGear);
+    const popUp = document.querySelector('.popup');
+}
+
 getApparatus().then(getTechs).then(mapApparatus); ////////////////////////////////////
-//getApparatus();
-//getTechs().then(mapApparatus);
-onBtnInfo();
+setTimeout(() => {
+    modalWindowOpen();
+    console.log('Заменить Таймер на промис/async');
+}, 2000);
