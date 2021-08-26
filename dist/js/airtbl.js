@@ -99,6 +99,22 @@ function modalWindowOpen() {
 function fillModalWindow(idGear) {
     console.log('PopUp  working', idGear);
     const popUp = document.querySelector('.popup');
+
+    for (let i = 0; i < techs.records.length; i++) {
+        const appId = techs.records[i].fields.apparatus[0];
+        const techsRec = techs.records[i];
+
+        if (idGear === appId) {
+            console.log(techs.records[i].fields.Name);
+            if (techs.records[0].fields.Name === 'Максимальное давление') {
+                let popupTechWrap = document.querySelector('.popup__tech_wrap');
+                let popupTechItem = popupTechWrap.insertAdjacentHTML(
+                    '',
+                    '<div class="popup__tech_item"><div class="popup__tech_name _maxpresure">Максимальное давление</div><div class="popup__tech_num _maxpresure_sub">15 Бар</div></div>'
+                );
+            }
+        }
+    }
 }
 
 getApparatus().then(getTechs).then(mapApparatus); ////////////////////////////////////
