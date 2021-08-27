@@ -41,7 +41,9 @@ function cloneGearTemplates(apparatusArr) {
 
 function createGearItems() {
     const gearItemFront = document.querySelectorAll('.gears-item-front');
-    const gearName = document.querySelectorAll('.gears-item-front > .gears-name');
+    const gearName = document.querySelectorAll(
+        '.gears-item-front > .gears-name'
+    );
     const gearPhoto = document.querySelectorAll('.gears-pic > img');
     const count = apparatus.records.length;
     ///Создаём счётчик по кол-ву записей
@@ -83,6 +85,8 @@ function openModalWindow() {
 
 function fillModalWindow(idGear) {
     console.log('PopUp  working', idGear);
+    ///////Удаляем все .popup__tech_item, чтобы на их месте создать новые
+    document.querySelectorAll('.popup__tech_item').forEach((e) => e.remove());
     const popUp = document.querySelector('.popup');
     let iEl = 0;
     let iFor = 0;
@@ -97,41 +101,54 @@ function fillModalWindow(idGear) {
 
             gearNameArr.push(techs.records[i].fields.Name);
 
-            techs.records[i].fields.Name;
-            techs.records[i].fields.value;
-            // document.createElement('div').classList.add('popup__tech_item');
-            // document.createElement('div').classList.add('popup__tech_name');
-            // document.createElement('div').classList.add('popup__tech_num');
+            let nameT = techs.records[i].fields.Name;
+            let valueT = techs.records[i].fields.value;
 
-            pTechWrap = 'popup__tech_wrap';
-            pTechItem = 'popup__tech_item';
-            pTechName = 'popup__tech_name';
-            pTechNum = 'popup__tech_num';
-            arrTechItem = document.querySelectorAll('.popup__tech_item');
+            let arrTechItem = document.querySelectorAll('.popup__tech_item');
+            ///////Ф-я создаёт обёртку (popup__tech_wrap), затем родительский эл.
+            //////(popup__tech_item) и два близница (popup__tech_name popup__tech_num)
+            createElemModalWindow(
+                'popup__tech_wrap',
+                'popup__tech_item',
+                iEl,
+                nameT,
+                valueT
+            );
+            //fillTechItem(nameT, valueT);
 
-            createElemModalWindow(pTechItem, pTechWrap);
-            createElemModalWindow(pTechName, arrTechItem[iEl]);
-            createElemModalWindow(pTechNum, arrTechItem[iEl]);
-
-            // techs.records[i].fields.Name === 'Максимальное давление';
-            // let popupTechWrap = document.querySelector('.popup__tech_wrap');
-            // popupTechWrap.insertAdjacentHTML(
-            //     'beforeend',
-            //     `<div class="popup__tech_item"><div class="popup__tech_name _maxpresure">Максимальное давление!</div><div class="popup__tech_num _maxpresure_sub">15 Бар</div></div>`
-            // );
             iEl++;
         }
     }
 }
-
-function createElemModalWindow(_classNameChild, _classNameParent) {
-    popupTechX = document.querySelector(`.${_classNameParent}`);
-    g = document.createElement('div');
-    g.className = _classNameChild;
-    popupTechX.append(g);
+/////////////////
+function createElemModalWindow(
+    _classNameWrap,
+    _classNameParent,
+    iEl,
+    nameT,
+    valueT
+) {
+    /////создаёт обёртку (popup__tech_wrap) и эл.popup__tech_item
+    popupTechX = document.querySelector(`.${_classNameWrap}`);
+    let div = document.createElement('div');
+    div.className = _classNameParent;
+    popupTechX.append(div);
+    addTwoChild(iEl, 'popup__tech_name', nameT);
+    addTwoChild(iEl, 'popup__tech_num', valueT);
 }
-function arrOfpTechItem() {
-    arrTechItem = document.querySelectorAll('.popup__tech_item');
+//////Создаёт два близница (popup__tech_name popup__tech_num)
+function addTwoChild(iEl, _classNameLastChild, nameORvalue) {
+    let arrTechItem = document.querySelectorAll('.popup__tech_item');
+    let div = document.createElement('div');
+    div.className = _classNameLastChild;
+    div.textContent = nameORvalue;
+    arrTechItem[iEl].append(div);
+}
+function fillTechItem(nameT, valueT) {
+    let arrTechItem = document.querySelectorAll('.popup__tech_item');
+    for (let techItem of arrTechItem) {
+        techItem;
+    }
 }
 
 getApparatus().then(getTechs).then(mapApparatus); ////////////////////////////////////
