@@ -63,6 +63,7 @@ function createGearItems() {
                 /////Вставляем изображение кофемашины
                 gearPhoto[i].src = appRec.fields.Photo[0].url;
             } else {
+                gearPhoto[i].src = 'img/coffgear.png';
                 console.log('Error no Photo');
             }
         }
@@ -76,9 +77,11 @@ function openModalWindow() {
     for (let btnModal of popupLinks) {
         btnModal.addEventListener('click', () => {
             const currentPopup = document.getElementById('popup');
-
+            //////////////////Передача конкретного ID кофемашины
+            let dataId = btnModal.closest('.gears-item-front').dataset.id;
+            console.log(dataId);
             popupOpen(currentPopup);
-            fillModalWindow('rec9baWckBQLZTXf9'); /////////////Заменить на .closest('div[data-id]
+            fillModalWindow(dataId); //////Заменить на .closest('div[data-id]
         });
     }
 }
@@ -87,9 +90,9 @@ function fillModalWindow(idGear) {
     console.log('PopUp  working', idGear);
     ///////Удаляем все .popup__tech_item, чтобы на их месте создать новые
     document.querySelectorAll('.popup__tech_item').forEach((e) => e.remove());
-    const popUp = document.querySelector('.popup');
+
     let iEl = 0;
-    let iFor = 0;
+
     let gearNameArr = [];
     ////////счётчик на кол-во записей в techs
     for (let i = 0; i < techs.records.length; i++) {
@@ -97,14 +100,11 @@ function fillModalWindow(idGear) {
         const techsRec = techs.records[i];
         ///////////////////////Если id кофемашин совпадают
         if (idGear === appId) {
-            // console.log(techs.records[i].fields.Name + techs.records[i].fields.value);
-
             gearNameArr.push(techs.records[i].fields.Name);
 
             let nameT = techs.records[i].fields.Name;
             let valueT = techs.records[i].fields.value;
 
-            let arrTechItem = document.querySelectorAll('.popup__tech_item');
             ///////Ф-я создаёт обёртку (popup__tech_wrap), затем родительский эл.
             //////(popup__tech_item) и два близница (popup__tech_name popup__tech_num)
             createElemModalWindow(
@@ -114,9 +114,34 @@ function fillModalWindow(idGear) {
                 nameT,
                 valueT
             );
-            //fillTechItem(nameT, valueT);
+            fillNameImgNote(idGear);
 
             iEl++;
+        }
+    }
+}
+
+function fillNameImgNote(idGear) {
+    const appRec = apparatus.records;
+    for (let i = 0; i < appRec.length; i++) {
+        let nameApp = appRec[i].fields.Name;
+        let notesApp = appRec[i].fields.Notes;
+
+        if (idGear === appRec[i].id) {
+            let gearPhoto = document.querySelector('.popup__img > img');
+            document.querySelector('.popup__title').textContent = nameApp;
+            document.querySelector('.popup__text').textContent = notesApp;
+
+            if (
+                Array.isArray(appRec[i].fields.Photo) &&
+                typeof appRec[i].fields.Photo[0].url === 'string'
+            ) {
+                /////Вставляем изображение кофемашины
+                gearPhoto.src = appRec[i].fields.Photo[0].url;
+            } else {
+                gearPhoto.src = 'img/coffgear.png';
+                console.log('Error no Photo');
+            }
         }
     }
 }
@@ -144,38 +169,11 @@ function addTwoChild(iEl, _classNameLastChild, nameORvalue) {
     div.textContent = nameORvalue;
     arrTechItem[iEl].append(div);
 }
-function fillTechItem(nameT, valueT) {
-    let arrTechItem = document.querySelectorAll('.popup__tech_item');
-    for (let techItem of arrTechItem) {
-        techItem;
-    }
-}
 
 getApparatus().then(getTechs).then(mapApparatus); ////////////////////////////////////
 setTimeout(() => {
     openModalWindow();
     console.log('Заменить Таймер на промис/async');
-}, 1300);
+}, 1400);
 
 ///////////////////glider.addItem
-
-function fillModalWindowBack(idGear) {
-    console.log('PopUp  working', idGear);
-    const popUp = document.querySelector('.popup');
-
-    for (let i = 0; i < techs.records.length; i++) {
-        const appId = techs.records[i].fields.apparatus[0];
-        const techsRec = techs.records[i];
-
-        if (idGear === appId) {
-            console.log(techs.records[i].fields.Name);
-            if (techs.records[i].fields.Name === 'Максимальное давление') {
-                let popupTechWrap = document.querySelector('.popup__tech_wrap');
-                popupTechWrap.insertAdjacentHTML(
-                    'beforeend',
-                    `<div class="popup__tech_item"><div class="popup__tech_name _maxpresure">Максимальное давление!</div><div class="popup__tech_num _maxpresure_sub">15 Бар</div></div>`
-                );
-            }
-        }
-    }
-}
