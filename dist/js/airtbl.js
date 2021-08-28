@@ -41,19 +41,26 @@ function cloneGearTemplates(apparatusArr) {
 
 function createGearItems() {
     const gearItemFront = document.querySelectorAll('.gears-item-front');
+    const gearItemFrontMobile = document.querySelectorAll('.gears-item--front'); /////Achtung ZWEI '--'/////////////////
     const gearName = document.querySelectorAll(
         '.gears-item-front > .gears-name'
+    );
+    const gearNameMobile = document.querySelectorAll(
+        '.gears-item--front > .gears-name'
     );
     const gearPhoto = document.querySelectorAll('.gears-pic > img');
     const count = apparatus.records.length;
     ///Создаём счётчик по кол-ву записей
     for (let i = 0; i < count; i++) {
         const appRec = apparatus.records[i];
+        let iM = apparatus.records.length + i;
         /////////////Присваиваем div'ам  data-id = id кофемашины//////
         gearItemFront[i].setAttribute('data-id', appRec.id);
+        gearItemFrontMobile[i].setAttribute('data-id', appRec.id);
         ///////////Сравниваем по ID от той ли кофемашины параметры
         if (gearItemFront[i].dataset.id === appRec.id) {
             gearName[i].textContent = appRec.fields.Name;
+            gearNameMobile[i].textContent = appRec.fields.Name;
             console.log(gearItemFront[i].dataset.id);
             //////Проверяем объект на существование/////
             if (
@@ -62,8 +69,10 @@ function createGearItems() {
             ) {
                 /////Вставляем изображение кофемашины
                 gearPhoto[i].src = appRec.fields.Photo[0].url;
+                gearPhoto[iM].src = appRec.fields.Photo[0].url;
             } else {
                 gearPhoto[i].src = 'img/coffgear.png';
+                gearPhoto[iM].src = 'img/coffgear.png';
                 console.log('Error no Photo');
             }
         }
@@ -78,7 +87,7 @@ function openModalWindow() {
         btnModal.addEventListener('click', () => {
             const currentPopup = document.getElementById('popup');
             //////////////////Передача конкретного ID кофемашины
-            let dataId = btnModal.closest('.gears-item-front').dataset.id;
+            let dataId = btnModal.closest('.gears-item').dataset.id;
             console.log(dataId);
             popupOpen(currentPopup);
             fillModalWindow(dataId); //////Заменить на .closest('div[data-id]
