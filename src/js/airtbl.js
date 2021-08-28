@@ -24,38 +24,47 @@ async function getTechs() {
 function mapApparatus() {
     // 	тут перебираем аппараты и добавляем характеристики
 
-    cloneGearDivs(apparatus); // Перебор массива//////////////////////////////////////////
+    cloneGearTemplates(apparatus);
     //cloneGearDivs(techs); // Перебор массива///////////////////////////////////////////
+    createGearItems();
+    glider.refresh(true);
 }
 
-function cloneGearDivs(geck) {
+function cloneGearTemplates(apparatusArr) {
     const gliderDiv = document.querySelector('.glider-track');
-    const gear1 = document.querySelector('div.gears-wrap._desktop');
-    const gearS = document.querySelectorAll('.gears-wrap');
-    const count = geck.records.length;
+    const gliderDivMobile = document.querySelector('.mobile_screen');
+    const count = apparatusArr.records.length;
+    const template = document.querySelector('#gearsTemp');
+    const templateMobile = document.querySelector('#gearsTempMobile');
     for (let i = 0; i < count; i++) {
-        let el = gearS[i];
-        el.classList.remove('disabled');
-        gliderDiv.appendChild(gear1.cloneNode(true));
-        el.classList.remove('disabled');
+        gliderDiv.append(template.content.cloneNode(true));
+        gliderDivMobile.append(templateMobile.content.cloneNode(true));
+        console.log(templateMobile.content);
     }
-
-    createGearItems();
 }
 
 function createGearItems() {
     const gearItemFront = document.querySelectorAll('.gears-item-front');
-    const gearName = document.querySelectorAll('.gears-item-front > .gears-name');
+    const gearItemFrontMobile = document.querySelectorAll('.gears-item--front'); /////Achtung ZWEI '--'/////////////////
+    const gearName = document.querySelectorAll(
+        '.gears-item-front > .gears-name'
+    );
+    const gearNameMobile = document.querySelectorAll(
+        '.gears-item--front > .gears-name'
+    );
     const gearPhoto = document.querySelectorAll('.gears-pic > img');
     const count = apparatus.records.length;
     ///Создаём счётчик по кол-ву записей
     for (let i = 0; i < count; i++) {
         const appRec = apparatus.records[i];
+        let iM = apparatus.records.length + i;
         /////////////Присваиваем div'ам  data-id = id кофемашины//////
         gearItemFront[i].setAttribute('data-id', appRec.id);
+        gearItemFrontMobile[i].setAttribute('data-id', appRec.id);
         ///////////Сравниваем по ID от той ли кофемашины параметры
         if (gearItemFront[i].dataset.id === appRec.id) {
             gearName[i].textContent = appRec.fields.Name;
+            gearNameMobile[i].textContent = appRec.fields.Name;
             console.log(gearItemFront[i].dataset.id);
             //////Проверяем объект на существование/////
             if (
@@ -64,45 +73,120 @@ function createGearItems() {
             ) {
                 /////Вставляем изображение кофемашины
                 gearPhoto[i].src = appRec.fields.Photo[0].url;
+                gearPhoto[iM].src = appRec.fields.Photo[0].url;
             } else {
+                gearPhoto[i].src = 'img/coffgear.png';
+                gearPhoto[iM].src = 'img/coffgear.png';
                 console.log('Error no Photo');
             }
         }
     }
 }
 
-function onBtnInfo() {
-    const btnInfo = document.querySelectorAll('.btn_info');
-
-    [...btnInfo].forEach((btnInfo) =>
-        btnInfo.addEventListener('click', () => {
-            gearItem = btnInfo.closest('div[data-id]');
-            console.log(btnInfo.closest('div[data-id]'));
-        })
-    );
-}
-
 /////////////Ф-я запуска модального окно с любой кнопки
-function modalWindowOpen() {
-    console.log(document.querySelectorAll('.btn_info').length);
+function openModalWindow() {
+    console.log(
+        document.querySelectorAll('.btn_info').length,
+        'Если 9, то кнопки подробнее работают'
+    );
     let popupLinks = document.querySelectorAll('.btn_info');
     for (let btnModal of popupLinks) {
         btnModal.addEventListener('click', () => {
             const currentPopup = document.getElementById('popup');
-
+            //////////////////Передача конкретного ID кофемашины
+            let dataId = btnModal.closest('.gears-item').dataset.id;
+            console.log(dataId);
             popupOpen(currentPopup);
-            fillModalWindow('rec9baWckBQLZTXf9'); /////////////Заменить на .closest('div[data-id]
+            fillModalWindow(dataId); //////Заменить на .closest('div[data-id]
         });
     }
 }
 
 function fillModalWindow(idGear) {
     console.log('PopUp  working', idGear);
-    const popUp = document.querySelector('.popup');
+    ///////Удаляем все .popup__tech_item, чтобы на их месте создать новые
+    document.querySelectorAll('.popup__tech_item').forEach((e) => e.remove());
+
+    let iEl = 0;
+
+    ////////счётчик на кол-во записей в techs
+    for (let i = 0; i < techs.records.length; i++) {
+        const appId = techs.records[i].fields.apparatus[0];
+        const techsRecF = techs.records[i].fields;
+        ///////////////////////Если id кофемашин совпадают
+        if (idGear === appId) {
+            let nameT = techsRecF.Name;
+            let valueT = techsRecF.value;
+
+            ///////Ф-я создаёт обёртку (popup__tech_wrap), затем родительский эл.
+            //////(popup__tech_item) и два близница (popup__tech_name popup__tech_num)
+            createElemModalWindow(
+                'popup__tech_wrap',
+                'popup__tech_item',
+                iEl,
+                nameT,
+                valueT
+            );
+            fillNameImgNote(idGear);
+
+            iEl++;
+        }
+    }
+}
+
+function fillNameImgNote(idGear) {
+    const appRec = apparatus.records;
+    for (let i = 0; i < appRec.length; i++) {
+        let nameApp = appRec[i].fields.Name;
+        let notesApp = appRec[i].fields.Notes;
+
+        if (idGear === appRec[i].id) {
+            let gearPhoto = document.querySelector('.popup__img > img');
+            document.querySelector('.popup__title').textContent = nameApp;
+            document.querySelector('.popup__text').textContent = notesApp;
+
+            if (
+                Array.isArray(appRec[i].fields.Photo) &&
+                typeof appRec[i].fields.Photo[0].url === 'string'
+            ) {
+                /////Вставляем изображение кофемашины
+                gearPhoto.src = appRec[i].fields.Photo[0].url;
+            } else {
+                gearPhoto.src = 'img/coffgear.png';
+                console.log('Error no Photo');
+            }
+        }
+    }
+}
+/////////////////
+function createElemModalWindow(
+    _classNameWrap,
+    _classNameParent,
+    iEl,
+    nameT,
+    valueT
+) {
+    /////создаёт обёртку (popup__tech_wrap) и эл.popup__tech_item
+    popupTechX = document.querySelector(`.${_classNameWrap}`);
+    let div = document.createElement('div');
+    div.className = _classNameParent;
+    popupTechX.append(div);
+    addTwoChild(iEl, 'popup__tech_name', nameT);
+    addTwoChild(iEl, 'popup__tech_num', valueT);
+}
+//////Создаёт два близница (popup__tech_name popup__tech_num)
+function addTwoChild(iEl, _classNameLastChild, nameORvalue) {
+    let arrTechItem = document.querySelectorAll('.popup__tech_item');
+    let div = document.createElement('div');
+    div.className = _classNameLastChild;
+    div.textContent = nameORvalue;
+    arrTechItem[iEl].append(div);
 }
 
 getApparatus().then(getTechs).then(mapApparatus); ////////////////////////////////////
 setTimeout(() => {
-    modalWindowOpen();
+    openModalWindow();
     console.log('Заменить Таймер на промис/async');
-}, 2000);
+}, 1400);
+
+///////////////////glider.addItem
