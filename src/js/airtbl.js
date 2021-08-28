@@ -32,10 +32,14 @@ function mapApparatus() {
 
 function cloneGearTemplates(apparatusArr) {
     const gliderDiv = document.querySelector('.glider-track');
+    const gliderDivMobile = document.querySelector('.mobile_screen');
     const count = apparatusArr.records.length;
     const template = document.querySelector('#gearsTemp');
+    const templateMobile = document.querySelector('#gearsTempMobile');
     for (let i = 0; i < count; i++) {
         gliderDiv.append(template.content.cloneNode(true));
+        gliderDivMobile.append(templateMobile.content.cloneNode(true));
+        console.log(templateMobile.content);
     }
 }
 
@@ -81,7 +85,10 @@ function createGearItems() {
 
 /////////////Ф-я запуска модального окно с любой кнопки
 function openModalWindow() {
-    console.log(document.querySelectorAll('.btn_info').length);
+    console.log(
+        document.querySelectorAll('.btn_info').length,
+        'Если 9, то кнопки подробнее работают'
+    );
     let popupLinks = document.querySelectorAll('.btn_info');
     for (let btnModal of popupLinks) {
         btnModal.addEventListener('click', () => {
@@ -102,17 +109,14 @@ function fillModalWindow(idGear) {
 
     let iEl = 0;
 
-    let gearNameArr = [];
     ////////счётчик на кол-во записей в techs
     for (let i = 0; i < techs.records.length; i++) {
         const appId = techs.records[i].fields.apparatus[0];
-        const techsRec = techs.records[i];
+        const techsRecF = techs.records[i].fields;
         ///////////////////////Если id кофемашин совпадают
         if (idGear === appId) {
-            gearNameArr.push(techs.records[i].fields.Name);
-
-            let nameT = techs.records[i].fields.Name;
-            let valueT = techs.records[i].fields.value;
+            let nameT = techsRecF.Name;
+            let valueT = techsRecF.value;
 
             ///////Ф-я создаёт обёртку (popup__tech_wrap), затем родительский эл.
             //////(popup__tech_item) и два близница (popup__tech_name popup__tech_num)
