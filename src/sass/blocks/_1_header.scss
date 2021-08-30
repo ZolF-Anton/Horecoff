@@ -31,8 +31,10 @@
                 a {
                     text-decoration: none;
                     color: $white;
+                    transition: 300ms;
+                    border-bottom: 2px solid transparent;
                     &:hover {
-                        border-bottom: 2px groove $salad;
+                        border-bottom: 2px solid $salad;
                         color: $salad;
                     }
                 }
@@ -47,6 +49,14 @@
         align-items: center;
         width: 162px;
         //background-color: black;
+
+        svg {
+            fill: #EDEEF0;
+            transition: 300ms;
+            &:hover {
+                fill: $salad;
+            }
+        }
     }
     &_brod {
         margin-top: 150px;

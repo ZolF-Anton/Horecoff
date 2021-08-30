@@ -5,6 +5,10 @@
         text-decoration: none;
         font-size: 18px;
         color: $white;
+        transition: 200ms;
+        &:hover {
+            color: $salad;
+        }
     }
     &_bot {
         background-color: $asph;
@@ -13,6 +17,7 @@
         align-items: center;
         color: $gray;
         font-size: 14px;
+        padding: 6px;
         a {
             font-size: 14px;
             text-decoration: none;

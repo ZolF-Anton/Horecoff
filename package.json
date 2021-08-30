@@ -1,10 +1,10 @@
 {
-  "name": "portfolio",
+  "name": "horecoff",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -19,8 +19,7 @@
     "gulp-imagemin": "^6.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.1.0",
-    "postcss": "^8.3.4",
-    "tailwindcss": "^2.1.4"
+    "postcss": "^8.3.4"
   },
   "browserslist": [
     "last 1 version",
