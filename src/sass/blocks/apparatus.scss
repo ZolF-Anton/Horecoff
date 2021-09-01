@@ -1,0 +1,117 @@
+.apparatus {
+  &__container {
+    position: relative;
+
+    &:hover {
+      .apparatus__control-btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__slider {
+    scroll-snap-type: inline mandatory;
+    display: flex;
+    overflow: scroll;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    column-gap: 50px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slider-item {
+    width: 25%;
+    scroll-snap-align: start;
+  }
+
+  &__control-btn {
+    z-index: 2;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: calc(50% - 30px);
+    left: -25px;
+    transition: 200ms;
+    opacity: 0;
+    background: #222932 url("/icon/left-chevron.svg");
+    &:hover {
+      background-color: white;
+    }
+    &:last-of-type {
+      transform: rotate(180deg);
+      left: auto;
+      right: -25px;
+    }
+  }
+
+  .apparat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 322px;
+    width: 322px;
+    height: 443px;
+    padding-bottom: 25px;
+    border-radius: 8px;
+    background: #23313F;
+    cursor: pointer;
+    transition: 300ms;
+
+    &:hover {
+      background: lighten(#23313F, 10%);
+
+      &__btn {
+        background: darken(#2464A5, 10%);
+      }
+    }
+
+    &__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      //background: url("../img/coffgear.png") top no-repeat;
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &__name {
+      padding-bottom: 15px;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 120%;
+      letter-spacing: 0.3px;
+      color: #EDEEF0;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &__btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 36px;
+      border-radius: 37px;
+      background: #2464A5;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 120%;
+      text-align: center;
+      letter-spacing: 0.5px;
+      color: #EDEEF0;
+      transition: 300ms;
+    }
+  }
+}
