@@ -4,14 +4,16 @@
 
 .sorts {
     &_column {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 50px;
-        justify-content: center;
+        //display: flex;
+        //flex-wrap: wrap;
+        //justify-content: center;
         margin-bottom: 40px;
     }
     &__wrap {
-        width: 520px;
+        //width: 520px;
         background-color: #23313f;
         border-radius: 8px;
         padding: 12px;

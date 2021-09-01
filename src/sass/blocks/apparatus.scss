@@ -1,6 +1,8 @@
 .apparatus {
   &__container {
+    width: 100%;
     position: relative;
+    margin-top: 50px;
 
     &:hover {
       .apparatus__control-btn {
@@ -77,6 +79,7 @@
     }
 
     &__image {
+      z-index: 0;
       position: absolute;
       top: 0;
       left: 0;
@@ -89,6 +92,7 @@
     }
 
     &__name {
+      z-index: 1;
       padding-bottom: 15px;
       font-weight: bold;
       font-size: 22px;
@@ -99,6 +103,7 @@
     }
 
     &__btn {
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -112,6 +117,52 @@
       letter-spacing: 0.5px;
       color: #EDEEF0;
       transition: 300ms;
+    }
+  }
+
+  @media screen and (max-width: 1500px) {
+    &__slider-item {
+      width: 33.3%;
+    }
+    .apparat {
+      min-width: auto;
+      width: 280px;
+      height: 340px;
+    }
+  }
+  @media screen and (max-width: 776px) {
+    &__slider {
+      column-gap: 30px;
+    }
+    &__control-btn {
+      display: none;
+    }
+    .apparat {
+      min-width: auto;
+      width: 180px;
+      height: 240px;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    &__slider {
+      column-gap: 20px;
+    }
+    &__slider-item {
+      width: 50%;
+      margin-right: 10px;
+    }
+    .apparat {
+      min-width: auto;
+      width: 180px;
+      height: 240px;
+      &__name {
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+      &__btn {
+        font-size: 12px;
+      }
     }
   }
 }

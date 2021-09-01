@@ -2,15 +2,19 @@
     padding-top: 0.1px;
 }
 .goals-wrap {
-    margin-top: 40px;
+    margin-top: 60px;
     display: flex;
+    justify-content: center;
+    column-gap: 52px;
 }
 .goals-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 272px;
 }
 .goals-text {
+    margin-top: 10px;
     font-size: 24px;
     color: $white;
     text-align: center;
