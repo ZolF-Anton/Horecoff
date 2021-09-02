@@ -19,8 +19,11 @@ $headers .= 'From: Horecoff <' . $username . '>' . "\r\n";
 
 // Mail it
 if(mail($to,$subject,$message,$headers)){
-  echo "Mail Success";
+    $response = [ 'success' => TRUE, 'message' => 'Mail success' ];
 } else {
-  echo "Error sending mail";
+    $response = [ 'success' => FALSE, 'message' => 'Mail failed' ];
 }
+
+header('Content-Type: application/json; charset=utf-8');
+echo json_encode( $response );
 ?>
