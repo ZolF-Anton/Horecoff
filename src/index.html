@@ -971,13 +971,14 @@
     <h2 class="gline">Контакты</h2>
     <div class="contacts_grid">
       <div class="contacts-form">
-        <form id="form" name="form" class="form" method="post" action="mail.php">
+        <form id="form" name="form" class="form">
           <h3>Свяжитесь с нами</h3>
           <div class="form-control">
             <label for="username"></label>
             <input
                 type="text"
                 id="username"
+                name="name"
                 placeholder="Ваше имя"
             />
             <small>Error message</small>
@@ -987,6 +988,7 @@
             <input
                 type="text"
                 id="email"
+                name="email"
                 placeholder="Ваша почта или телефон"
             />
             <small>Error message</small>
@@ -1001,6 +1003,7 @@
             <textarea
                 required
                 id="textarea"
+                name="comment"
                 placeholder="Напишите нам"
             ></textarea>
             <small>Error message</small>
@@ -1466,7 +1469,7 @@
     />
   </symbol>
 </svg>
-<script src="js/glider.min.js"></script>
+<!--<script src="js/glider.min.js"></script>-->
 <script src="js/app.js"></script>
 <script src="js/airtbl.js"></script>
 </body>

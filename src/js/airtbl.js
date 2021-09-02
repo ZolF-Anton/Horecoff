@@ -271,6 +271,5 @@ function initApparatusSlider() {
     }
 
     render();
-    render();
     startSlider();
 }
