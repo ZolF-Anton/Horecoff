@@ -22,89 +22,41 @@ async function getTechs() {
 }
 
 function mapApparatus() {
-    return; //disable
-    // 	тут перебираем аппараты и добавляем характеристики
-
-    cloneGearTemplates(apparatus);
-    //cloneGearDivs(techs); // Перебор массива///////////////////////////////////////////
-    createGearItems();
-    glider.refresh(true);
+    // return; //////////////////////////////disable
 }
 
-function cloneGearTemplates(apparatusArr) {
-    const gliderDiv = document.querySelector('.glider-track');
-    const gliderDivMobile = document.querySelector('.mobile_screen');
-    const count = apparatusArr.records.length;
-    const template = document.querySelector('#gearsTemp');
-    const templateMobile = document.querySelector('#gearsTempMobile');
-    for (let i = 0; i < count; i++) {
-        gliderDiv.append(template.content.cloneNode(true));
-        gliderDivMobile.append(templateMobile.content.cloneNode(true));
-        console.log(templateMobile.content);
-    }
-}
-
-function createGearItems() {
-    const gearItemFront = document.querySelectorAll('.gears-item-front');
-    const gearItemFrontMobile = document.querySelectorAll('.gears-item--front'); /////Achtung ZWEI '--'/////////////////
-    const gearName = document.querySelectorAll(
-        '.gears-item-front > .gears-name'
-    );
-    const gearNameMobile = document.querySelectorAll(
-        '.gears-item--front > .gears-name'
-    );
-    const gearPhoto = document.querySelectorAll('.gears-pic > img');
+function sliderGetAppID() {
+    const gearItemFront = document.querySelectorAll('.apparatus__slider-item');
     const count = apparatus.records.length;
     ///Создаём счётчик по кол-ву записей
     for (let i = 0; i < count; i++) {
         const appRec = apparatus.records[i];
-        let iM = apparatus.records.length + i;
-        /////////////Присваиваем div'ам  data-id = id кофемашины//////
+
         gearItemFront[i].setAttribute('data-id', appRec.id);
-        gearItemFrontMobile[i].setAttribute('data-id', appRec.id);
-        ///////////Сравниваем по ID от той ли кофемашины параметры
-        if (gearItemFront[i].dataset.id === appRec.id) {
-            gearName[i].textContent = appRec.fields.Name;
-            gearNameMobile[i].textContent = appRec.fields.Name;
-            console.log(gearItemFront[i].dataset.id);
-            //////Проверяем объект на существование/////
-            if (
-                Array.isArray(appRec.fields.Photo) &&
-                typeof appRec.fields.Photo[0].url === 'string'
-            ) {
-                /////Вставляем изображение кофемашины
-                gearPhoto[i].src = appRec.fields.Photo[0].url;
-                gearPhoto[iM].src = appRec.fields.Photo[0].url;
-            } else {
-                gearPhoto[i].src = 'img/coffgear.png';
-                gearPhoto[iM].src = 'img/coffgear.png';
-                console.log('Error no Photo');
-            }
-        }
     }
 }
 
 /////////////Ф-я запуска модального окно с любой кнопки
 function openModalWindow() {
     console.log(
-        document.querySelectorAll('.btn_info').length,
-        'Если 9, то кнопки подробнее работают'
+        `Если ${document.querySelectorAll('.apparat__btn').length} > 0  и = ${
+            apparatus.records.length
+        } то кнопки 'подробнее' работают штатно`
     );
-    let popupLinks = document.querySelectorAll('.btn_info');
+    let popupLinks = document.querySelectorAll('.apparat__btn');
     for (let btnModal of popupLinks) {
         btnModal.addEventListener('click', () => {
             const currentPopup = document.getElementById('popup');
             //////////////////Передача конкретного ID кофемашины
-            let dataId = btnModal.closest('.gears-item').dataset.id;
+            let dataId = btnModal.closest('.apparatus__slider-item').dataset.id;
             console.log(dataId);
             popupOpen(currentPopup);
-            fillModalWindow(dataId); //////Заменить на .closest('div[data-id]
+            fillModalWindow(dataId);
         });
     }
 }
 
 function fillModalWindow(idGear) {
-    console.log('PopUp  working', idGear);
     ///////Удаляем все .popup__tech_item, чтобы на их месте создать новые
     document.querySelectorAll('.popup__tech_item').forEach((e) => e.remove());
 
@@ -121,13 +73,7 @@ function fillModalWindow(idGear) {
 
             ///////Ф-я создаёт обёртку (popup__tech_wrap), затем родительский эл.
             //////(popup__tech_item) и два близница (popup__tech_name popup__tech_num)
-            createElemModalWindow(
-                'popup__tech_wrap',
-                'popup__tech_item',
-                iEl,
-                nameT,
-                valueT
-            );
+            createElemModalWindow('popup__tech_wrap', 'popup__tech_item', iEl, nameT, valueT);
             fillNameImgNote(idGear);
 
             iEl++;
@@ -160,13 +106,7 @@ function fillNameImgNote(idGear) {
     }
 }
 /////////////////
-function createElemModalWindow(
-    _classNameWrap,
-    _classNameParent,
-    iEl,
-    nameT,
-    valueT
-) {
+function createElemModalWindow(_classNameWrap, _classNameParent, iEl, nameT, valueT) {
     /////создаёт обёртку (popup__tech_wrap) и эл.popup__tech_item
     popupTechX = document.querySelector(`.${_classNameWrap}`);
     let div = document.createElement('div');
@@ -184,10 +124,12 @@ function addTwoChild(iEl, _classNameLastChild, nameORvalue) {
     arrTechItem[iEl].append(div);
 }
 
-getApparatus().then(() => {
-    initApparatusSlider();
-    getTechs();
-}).then(mapApparatus);
+getApparatus()
+    .then(() => {
+        initApparatusSlider();
+        getTechs();
+    })
+    .then(mapApparatus);
 
 setTimeout(() => {
     openModalWindow();
@@ -214,13 +156,13 @@ function nextSlide(up = true) {
     }
     slider.scrollTo({
         left,
-        behavior: 'smooth'
+        behavior: 'smooth',
     });
 }
 
 function initApparatusSlider() {
     let interval = null;
-    const machines = (apparatus && apparatus.records) || [];
+    const machines = /*apparatus &&*/ apparatus.records; /* || []*/
 
     const slider = document.querySelector('.apparatus__slider');
     if (!slider) return;
@@ -230,26 +172,30 @@ function initApparatusSlider() {
     const controls = document.querySelectorAll('.apparatus__control-btn');
     controls[0].addEventListener('click', () => nextSlide(false));
     controls[1].addEventListener('click', () => nextSlide(true));
-    controls.forEach(btn => {
-      btn.addEventListener('mouseover', stopSlider);
-      btn.addEventListener('mouseout', startSlider);
-    })
+    controls.forEach((btn) => {
+        btn.addEventListener('mouseover', stopSlider);
+        btn.addEventListener('mouseout', startSlider);
+    });
 
     function render() {
-        machines.forEach(machine => {
+        machines.forEach((machine) => {
             const { Photo, Name } = machine.fields || {};
             const hasImage = Array.isArray(Photo) && Photo.length > 0;
-            const imageUrl = hasImage ? Photo[0].url : '../img/coffgear.png'; // сделать запасную фотку если фото нет
-            const sliderItem = document.createElement('li')
+            const imageUrl = hasImage ? Photo[0].url : 'img/coffgear.png'; // сделать запасную фотку если фото нет
+            const sliderItem = document.createElement('li');
             sliderItem.classList.toggle('apparatus__slider-item', true);
+
             const apparatEl = document.createElement('div');
             apparatEl.classList.toggle('apparat', true);
+
             const apparatImageEl = document.createElement('div');
             apparatImageEl.classList.toggle('apparat__image', true);
             apparatImageEl.style.backgroundImage = `url(${imageUrl})`;
+
             const apparatNameEl = document.createElement('div');
             apparatNameEl.classList.toggle('apparat__name', true);
             apparatNameEl.innerText = Name;
+
             const apparatBtnEl = document.createElement('div');
             apparatBtnEl.classList.toggle('apparat__btn', true);
             apparatBtnEl.innerText = 'Подробнее';
@@ -259,12 +205,13 @@ function initApparatusSlider() {
             sliderItem.appendChild(apparatEl);
             slider.appendChild(sliderItem);
         });
+        sliderGetAppID();
     }
 
     function startSlider() {
-      interval = setInterval(() => {
-          nextSlide();
-        }, 5000)
+        interval = setInterval(() => {
+            nextSlide();
+        }, 5000);
     }
     function stopSlider() {
         clearInterval(interval);
