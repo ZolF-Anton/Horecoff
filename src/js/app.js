@@ -91,75 +91,6 @@ if (menuLinks.length > 0) {
 //////////////////////////////glide_JS////////////
 /////////////////////////////////////////////////
 
-// Glider Configuration
-function gliderStart() {
-    glider = new Glider(document.querySelector('.glider'), {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        draggable: true,
-        dots: '.dots',
-        responsive: [
-            {
-                // If Screen Size More than 768px
-                breakpoint: 577,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    duration: 0.5,
-                    scrollLock: true,
-                    arrows: {
-                        prev: '.glider-prev',
-                        next: '.glider-next',
-                    },
-                },
-            },
-            {
-                // If Screen Size More than 768px
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    duration: 0.5,
-                    scrollLock: true,
-                    arrows: {
-                        prev: '.glider-prev',
-                        next: '.glider-next',
-                    },
-                },
-            },
-            {
-                // If Screen Size More than 1024px
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    duration: 0.5,
-                    scrollLock: true,
-
-                    arrows: {
-                        prev: '.glider-prev',
-                        next: '.glider-next',
-                    },
-                },
-            },
-            {
-                // If Screen Size More than 1324px
-                breakpoint: 1324,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    duration: 0.5,
-                    scrollLock: true,
-                    arrows: {
-                        prev: '.glider-prev',
-                        next: '.glider-next',
-                    },
-                },
-            },
-        ],
-    });
-}
-gliderStart();
 ///////////////////Form Validate/////////////////////////
 ////////////////////////////////////////////////////////
 function validateForm() {
@@ -206,15 +137,9 @@ function validateForm() {
     // Check input length
     function checkLength(input, min, max) {
         if (input.value.length < min) {
-            showError(
-                input,
-                `${getFieldName(input)} must be at least ${min} characters`
-            );
+            showError(input, `${getFieldName(input)} must be at least ${min} characters`);
         } else if (input.value.length > max) {
-            showError(
-                input,
-                `${getFieldName(input)} must be less than ${max} characters`
-            );
+            showError(input, `${getFieldName(input)} must be less than ${max} characters`);
         } else {
             showSuccess(input);
         }
