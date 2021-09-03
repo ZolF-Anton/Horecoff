@@ -38,11 +38,9 @@ function sliderGetAppID() {
 
 /////////////Ф-я запуска модального окно с любой кнопки
 function openModalWindow() {
-    console.log(
-        `Если ${document.querySelectorAll('.apparat__btn').length} > 0  и = ${
-            apparatus.records.length
-        } то кнопки 'подробнее' работают штатно`
-    );
+    if (document.querySelectorAll('.apparat__btn').length < apparatus.records.length) {
+        console.error(`Внимание кнопки 'подробнее' работают НЕ штатно`);
+    }
     let popupLinks = document.querySelectorAll('.apparat__btn');
     for (let btnModal of popupLinks) {
         btnModal.addEventListener('click', () => {
@@ -162,7 +160,7 @@ function nextSlide(up = true) {
 
 function initApparatusSlider() {
     let interval = null;
-    const machines = /*apparatus &&*/ apparatus.records; /* || []*/
+    const machines = (apparatus && apparatus.records) || [];
 
     const slider = document.querySelector('.apparatus__slider');
     if (!slider) return;
