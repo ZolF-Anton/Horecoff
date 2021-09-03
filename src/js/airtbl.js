@@ -45,7 +45,7 @@ function openModalWindow() {
     for (let btnModal of popupLinks) {
         btnModal.addEventListener('click', () => {
             const currentPopup = document.getElementById('popup');
-            //////////////////Передача конкретного ID кофемашины
+            ////////////////Передача конкретного ID кофемашины
             let dataId = btnModal.closest('.apparatus__slider-item').dataset.id;
             console.log(dataId);
             popupOpen(currentPopup);
