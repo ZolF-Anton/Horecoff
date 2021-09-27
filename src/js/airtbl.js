@@ -103,13 +103,6 @@ getApparatus().then(() => {
   getTechs();
 });
 
-setTimeout(() => {
-  openModalWindow();
-  // console.log('Заменить Таймер на промис/async');
-}, 1400);
-
-///////////////////glider.addItem
-
 // Own slider by OstKost
 function nextSlide(up = true) {
   const slider = document.querySelector('.apparatus__slider');
@@ -135,6 +128,11 @@ function nextSlide(up = true) {
 function initApparatusSlider() {
   let interval = null;
   const machines = (apparatus && apparatus.records) || [];
+  machines.sort((a, b) => {
+    const { Position: p1 = 0 } = a.fields || {};
+    const { Position: p2 = 0 } = b.fields || {};
+    return p1 > p2 ? 1 : -1;
+  })
 
   const slider = document.querySelector('.apparatus__slider');
   if (!slider) return;
