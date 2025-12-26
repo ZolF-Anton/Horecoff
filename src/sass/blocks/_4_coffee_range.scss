@@ -17,6 +17,15 @@
         background-color: #23313f;
         border-radius: 8px;
         padding: 12px;
+        &_descr {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            img {
+                max-width: 240px;
+                max-height: 240px;
+            }
+        }
     }
     &_head {
         display: flex;
@@ -24,11 +33,22 @@
         align-items: center;
         gap: 35px;
         margin-bottom: 20px;
+        &_alt {
+            margin: 0;
+        }
     }
     &_name {
         font-weight: 700;
         font-size: 36px;
         text-transform: uppercase;
+        &_alt {
+            font-weight: 700;
+            font-size: 30px;
+            text-transform: uppercase;
+            span {
+                font-size: 24px;
+            }
+        }
     }
     &_taste {
         display: flex;
